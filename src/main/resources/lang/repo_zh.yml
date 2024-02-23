@@ -1,0 +1,23 @@
+# 1 通用
+err_not_have_permission: "您没有权限使用此命令。"
+err_not_alloved_config: "配置设置中不允许使用此命令。"
+err_command_only_player: "此命令只能由玩家执行。"
+err_command_format: "命令格式："
+#
+# 2 加载配置
+err_folder_is_empty: "文件夹为空或读取时出错。"
+err_folder_is_notexist: "文件夹不存在或不是文件夹。"
+err_reloading_configuration: "重新加载配置时出错。"
+created_default_configuration: "已创建默认配置。"
+configuration_reloaded: "配置已重新加载。"
+language_reloaded: "语言文件和配置已重新加载。"
+#
+# 3 其他命令
+err_language_code_2letters: "语言代码必须为2个字母。"
+err_invalid_language_code: "无效的语言代码: "
+you_language: "您选择的语言列表: "
+you_have_not_set_language: "您尚未选择任何语言，将使用Minecraft设置 "
+cleared_the_language: "您已清除语言列表，将使用Minecraft设置 "
+err_no_item_data_found: "未找到指定语言和键的任何数据。"
+keys_for_language: "该语言的键 "
+err_command_format: "命令格式: "

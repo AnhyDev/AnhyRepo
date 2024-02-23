@@ -1,0 +1,51 @@
+#
+# ░█████╗░███╗░░██╗██╗░░██╗██╗░░░██╗██████╗░███████╗██████╗░░█████╗░
+# ██╔══██╗████╗░██║██║░░██║╚██╗░██╔╝██╔══██╗██╔════╝██╔══██╗██╔══██╗
+# ███████║██╔██╗██║███████║░╚████╔╝░██████╔╝█████╗░░██████╔╝██║░░██║
+# ██╔══██║██║╚████║██╔══██║░░╚██╔╝░░██╔══██╗██╔══╝░░██╔═══╝░██║░░██║
+# ██║░░██║██║░╚███║██║░░██║░░░██║░░░██║░░██║███████╗██║░░░░░╚█████╔╝
+# ╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░░░░░╚════╝░
+#
+# Default language to be used in case a translation is not found in the desired language:
+language: ua
+# Name of the plugin for display to users in chat:
+plugin_name: AnhyRepo
+debug: true
+
+# Database settings:
+database:
+   # Choice of database type: 'SQLite' or 'MySQL'
+   type: 'SQLite'
+   # Settings to connect to MySQL if this database type is selected
+   mysql:
+     # The MySQL server host 'localhost', or a remote host such as db4free.net
+     host: 'db4free.net'
+     # MySQL server port
+     port: 3306
+     # Database name
+     database: 'anhyfamily'
+     # User name
+     username: 'anhydev'
+     # Password (leave blank if there is no password)
+     password: 'HE5rYZb2hygDf4FW'
+     # Prefix for tables. If multiple servers with this plugin connect to the same database, replace it with unique variants
+     prefix: 'anhyrepo333_'
+     # Use SSL to connect
+     useSSL: false
+     # Automatic reconnection when the connection is lost
+     autoReconnect: true
+
+# 
+repo_default:
+   command_rules: "/rules"
+   command_afk: "/menu"
+   command_spawn: "/spawn"
+   command_sethome: '/sethome'
+   command_home: '/home'
+   command_tpa: "/tpa"
+   command_tpaccept: "/tpaccept"
+   command_tpdeny: "/tpdeny"
+   command_afk: "/afk"
+   command_msg: "/msg"
+   command_repo_qui: '/repo gui'
+

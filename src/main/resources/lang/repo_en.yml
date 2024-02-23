@@ -1,0 +1,23 @@
+# 1 General
+err_not_have_permission: "You do not have permission to use this command."
+err_not_alloved_config: "The command is not allowed in the configuration settings."
+err_command_only_player: "This command can only be executed by a player."
+err_command_format: "Command format: "
+#
+# 2 Loading configurations
+err_folder_is_empty: "The folder is empty or an error occurred while reading it."
+err_folder_is_notexist: "The folder does not exist or it is not a folder."
+err_reloading_configuration: "Error reloading configuration."
+created_default_configuration: "Default configuration created."
+configuration_reloaded: "Configuration reloaded."
+language_reloaded: "Language files and configuration reloaded."
+#
+# 3 language commands
+err_language_code_2letters: "Language code must be 2 letters. "
+err_invalid_language_code: "Invalid language code: "
+you_language: "List of languages you have chosen: "
+you_have_not_set_language: "You have not chosen any language, using Minecraft settings "
+cleared_the_language: "You have cleared the language list, Minecraft settings will be used "
+err_no_item_data_found: "No data found for the specified language and key. "
+keys_for_language: "Keys for language "
+language_is_selected: "You have selected the following languages: "

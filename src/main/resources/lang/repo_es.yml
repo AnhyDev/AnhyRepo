@@ -1,0 +1,23 @@
+# 1 General
+err_not_have_permission: "No tienes permiso para usar este comando."
+err_not_alloved_config: "El comando no está permitido en la configuración."
+err_command_only_player: "Este comando solo puede ser ejecutado por un jugador."
+err_command_format: "Formato del comando: "
+#
+# 2 Cargando configuraciones
+err_folder_is_empty: "La carpeta está vacía o se produjo un error al leerla."
+err_folder_is_notexist: "La carpeta no existe o no es una carpeta."
+err_reloading_configuration: "Error al recargar la configuración."
+created_default_configuration: "Configuración predeterminada creada."
+configuration_reloaded: "Configuración recargada."
+language_reloaded: "Archivos de idioma y configuración recargados."
+#
+# 3 comandos de idioma
+err_language_code_2letters: "El código de idioma debe ser de 2 letras. "
+err_invalid_language_code: "Código de idioma inválido: "
+you_language: "Lista de idiomas que has elegido: "
+you_have_not_set_language: "No has elegido ningún idioma, se usarán las configuraciones de Minecraft "
+cleared_the_language: "Has borrado la lista de idiomas, se usarán las configuraciones de Minecraft "
+err_no_item_data_found: "No se encontraron datos para el idioma y clave especificados. "
+keys_for_language: "Claves para el idioma "
+language_is_selected: "Has seleccionado los siguientes idiomas: "

@@ -1,0 +1,23 @@
+# 1 Allgemein
+err_not_have_permission: "Sie haben keine Berechtigung, diesen Befehl zu verwenden."
+err_not_alloved_config: "Der Befehl ist in den Konfigurationseinstellungen nicht erlaubt."
+err_command_only_player: "Dieser Befehl kann nur von einem Spieler ausgeführt werden."
+err_command_format: "Befehlsformat: "
+#
+# 2 Laden von Konfigurationen
+err_folder_is_empty: "Der Ordner ist leer oder ein Fehler ist beim Lesen aufgetreten."
+err_folder_is_notexist: "Der Ordner existiert nicht oder ist kein Ordner."
+err_reloading_configuration: "Fehler beim Neuladen der Konfiguration."
+created_default_configuration: "Standardkonfiguration erstellt."
+configuration_reloaded: "Konfiguration neu geladen."
+language_reloaded: "Sprachdateien und Konfiguration neu geladen."
+#
+# 3 Sprachbefehle
+err_language_code_2letters: "Sprachcode muss aus 2 Buchstaben bestehen. "
+err_invalid_language_code: "Ungültiger Sprachcode: "
+you_language: "Liste der von Ihnen gewählten Sprachen: "
+you_have_not_set_language: "Sie haben keine Sprache ausgewählt, es werden Minecraft-Einstellungen verwendet "
+cleared_the_language: "Sie haben die Sprachliste gelöscht, es werden Minecraft-Einstellungen verwendet "
+err_no_item_data_found: "Keine Daten für die angegebene Sprache und Schlüssel gefunden. "
+keys_for_language: "Schlüssel für Sprache "
+language_is_selected: "Sie haben folgende Sprachen ausgewählt: "

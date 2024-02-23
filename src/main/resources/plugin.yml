@@ -1,0 +1,11 @@
+main: ink.anh.repo.AnhyRepo
+name: AnhyRepo
+version: 0.1.0
+author: AnhyDev
+api-version: 1.13
+depend: [AnhyLibAPI]
+website: https://dev.anh.ink
+commands:
+    repo:
+        aliases: [anhyrepo, ar]
+        usage: "[AnhyRepo] The command '/repo' execution error, please check the arguments' correctness."
