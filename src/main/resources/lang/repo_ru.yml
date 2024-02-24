@@ -1,26 +1,49 @@
-# 1 Общее
-err_not_have_permission: "У вас нет разрешения на использование этой команды."
-err_not_alloved_config: "Команда не разрешена в настройках конфигурации."
-err_command_only_player: "Эта команда может выполняться только игроком."
-err_command_format: "Формат команды: "
-#
-# 2 Загрузка конфигураций
-err_folder_is_empty: "Папка пуста или произошла ошибка при ее чтении."
-err_folder_is_notexist: "Папка не существует или это не папка."
-err_reloading_configuration: "Ошибка перезагрузки конфигурации."
-created_default_configuration: "Создана конфигурация по умолчанию."
-configuration_reloaded: "Конфигурация перезагружена."
-language_reloaded: "Языковые файлы и конфигурация перезагружены."
-#
-# 3 Языковые команды
-err_language_code_2letters: "Код языка должен состоять из 2 букв. "
-err_invalid_language_code: "Недействительный код языка: "
-you_language: "Список выбранных вами языков: "
-you_have_not_set_language: "Вы не выбрали ни одного языка, используются настройки майнкрафта "
-cleared_the_language: "Вы очистили список языков, будут использоваться настройки майнкрафта "
-err_no_item_data_found: "Не найдено никаких данных для указанного языка и ключа. "
-keys_for_language: "Ключи для языка "
-language_is_selected: "Вы выбрали следующие языки: "
+# Перезагрузка конфигураций
+repo_configuration_reloaded: "Конфигурация перезагружена."
+repo_err_reloading_configuration: "Ошибка при перезагрузке конфигурации."
+repo_language_reloaded: "Языковые файлы и конфигурация перезагружены."
 
-################
-repo_basic_repository: "Базовый репозиторий"
+# Общие ключи
+repo_err_not_have_permission: "У вас нет разрешения использовать эту команду."
+repo_err_command_only_player: "Эту команду может выполнить только игрок."
+repo_err_command_format: "Формат команды:"
+
+# Работа с репозиториями
+repo_error_occurred_repository: "Произошла ошибка при обработке репозитория:"
+repo_basic_repository: "Основной репозиторий"
+repo_failed_to_send_component: "Не удалось отправить компонент"
+repo_click_text_here: "Нажмите здесь, чтобы вставить текст ниже в командную строку"
+repo_group_holder: "Меню репозиториев"
+repo_err_index_not_found: "Репозиторий с таким индексом не найден."
+repo_group_successfully_renamed: "Репозиторий успешно переименован."
+repo_err_invalid_index_format: "Неверный формат индекса. Индекс должен быть числом."
+repo_err_group_rename: "Ошибка при переименовании репозитория: "
+repo_error_update_failed: "Ошибка при обновлении."
+repo_err_item_not_in_hand: "У вас нет предмета в руке."
+repo_success_item_replaced: "Предмет успешно заменен."
+repo_error_item_replace_failed: "Ошибка при замене предмета."
+repo_success_update: "Обновление успешно."
+repo_err_invalid_name_lore_format: "Неверный формат имени и описания. Используйте слеш (/) для разделения."
+repo_success_item_added: "Запись успешно добавлена в репозиторий."
+repo_success_item_deleted_reindexed: "Запись удалена, хранилище репозитория обновлено и переиндексировано."
+
+# Команды языка
+repo_language_is_selected: "Вы выбрали следующие языки:"
+repo_err_language_code_2letters: "Код языка должен состоять из 2 букв."
+repo_err_invalid_language_code: "Недействительный код языка: "
+repo_you_language: "Список выбранных вами языков:"
+repo_you_have_not_set_language: "Вы не выбрали ни одного языка, будут использоваться настройки Minecraft."
+repo_cleared_the_language: "Вы очистили список языков, будут использоваться настройки Minecraft."
+
+# Названия элементов основного репозитория, могут быть добавлены или изменены в соответствии с содержимым в config.yml, ключи должны совпадать.
+command_rules: "Правила"
+command_afk: "Меню"
+command_spawn: "Телепорт на спавн"
+command_sethome: "Установить дом"
+command_home: "Телепорт домой"
+command_tpa: "Телепорт к игроку"
+command_tpaccept: "Принять запрос на телепорт"
+command_tpdeny: "Отклонить запрос на телепорт"
+command_afk: "АФК"
+command_msg: "Личное сообщение"
+command_repo_qui: 'Меню репозитория'

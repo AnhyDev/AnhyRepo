@@ -23,7 +23,7 @@ public class LangSubCommand extends Sender {
 
             // Check if enough arguments are provided (minimum 2)
             if (args.length < 2) {
-                sendMessage(new MessageForFormatting("err_command_format /repo setlang <lang1> <lang2> ...", null), MessageType.WARNING, sender);
+                sendMessage(new MessageForFormatting("repo_err_command_format /repo setlang <lang1> [lang2] [langX]", null), MessageType.WARNING, sender);
                 return;
             }
 
@@ -37,17 +37,17 @@ public class LangSubCommand extends Sender {
             if (result == 1) {
                 // Successful operation
                 String[] langs = LangUtils.getPlayerLanguage(player);
-                sendMessage(new MessageForFormatting("language_is_selected " + String.join(", ", langs), null), MessageType.NORMAL, sender);
+                sendMessage(new MessageForFormatting("repo_language_is_selected " + String.join(", ", langs), null), MessageType.NORMAL, sender);
             } else if (result == 0) {
                 // Invalid language code length
-                sendMessage(new MessageForFormatting("err_language_code_2letters ", null), MessageType.WARNING, sender);
+                sendMessage(new MessageForFormatting("repo_err_language_code_2letters", null), MessageType.WARNING, sender);
             } else {
                 // Other errors
-                sendMessage(new MessageForFormatting("err_invalid_language_code ", null), MessageType.WARNING, sender);
+                sendMessage(new MessageForFormatting("repo_err_invalid_language_code ", null), MessageType.WARNING, sender);
             }
         } else {
             // Command can only be executed by a player
-            sendMessage(new MessageForFormatting("err_command_only_player", null), MessageType.WARNING, sender);
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
         }
         return;
     }
@@ -61,14 +61,14 @@ public class LangSubCommand extends Sender {
             String[] langs = LangUtils.getLangs(player);
             if (langs != null) {
                 // Display the current language settings to the player
-                sendMessage(new MessageForFormatting("you_language " + String.join(", ", langs), null), MessageType.NORMAL, sender);
+                sendMessage(new MessageForFormatting("repo_you_language " + String.join(", ", langs), null), MessageType.NORMAL, sender);
             } else {
                 // No language settings found
-                sendMessage(new MessageForFormatting("you_have_not set_language ", null), MessageType.WARNING, sender);
+                sendMessage(new MessageForFormatting("repo_you_have_not_set_language", null), MessageType.WARNING, sender);
             }
         } else {
             // Command can only be executed by a player
-            sendMessage(new MessageForFormatting("err_command_only_player", null), MessageType.WARNING, sender);
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
         }
         return;
     }
@@ -84,14 +84,14 @@ public class LangSubCommand extends Sender {
             // Handling the result of the reset operation
             if (result == 1) {
                 // Successful reset
-                sendMessage(new MessageForFormatting("cleared_the_language ", null), MessageType.NORMAL, sender);
+                sendMessage(new MessageForFormatting("repo_cleared_the_language ", null), MessageType.NORMAL, sender);
             } else {
                 // No language settings to reset
-                sendMessage(new MessageForFormatting("you_have_not set_language ", null), MessageType.WARNING, sender);
+                sendMessage(new MessageForFormatting("repo_you_have_not_set_language", null), MessageType.WARNING, sender);
             }
         } else {
             // Command can only be executed by a player
-            sendMessage(new MessageForFormatting("err_command_only_player", null), MessageType.WARNING, sender);
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
         }
         return;
     }

@@ -1,23 +1,49 @@
-# 1 General
-err_not_have_permission: "You do not have permission to use this command."
-err_not_alloved_config: "The command is not allowed in the configuration settings."
-err_command_only_player: "This command can only be executed by a player."
-err_command_format: "Command format: "
-#
-# 2 Loading configurations
-err_folder_is_empty: "The folder is empty or an error occurred while reading it."
-err_folder_is_notexist: "The folder does not exist or it is not a folder."
-err_reloading_configuration: "Error reloading configuration."
-created_default_configuration: "Default configuration created."
-configuration_reloaded: "Configuration reloaded."
-language_reloaded: "Language files and configuration reloaded."
-#
-# 3 language commands
-err_language_code_2letters: "Language code must be 2 letters. "
-err_invalid_language_code: "Invalid language code: "
-you_language: "List of languages you have chosen: "
-you_have_not_set_language: "You have not chosen any language, using Minecraft settings "
-cleared_the_language: "You have cleared the language list, Minecraft settings will be used "
-err_no_item_data_found: "No data found for the specified language and key. "
-keys_for_language: "Keys for language "
-language_is_selected: "You have selected the following languages: "
+# Reloading Configurations
+repo_configuration_reloaded: "Configuration reloaded."
+repo_err_reloading_configuration: "Error reloading configuration."
+repo_language_reloaded: "Language files and configuration reloaded."
+
+# General Keys
+repo_err_not_have_permission: "You do not have permission to use this command."
+repo_err_command_only_player: "This command can only be executed by a player."
+repo_err_command_format: "Command format:"
+
+# Working with Repositories
+repo_error_occurred_repository: "An error occurred while processing the repository:"
+repo_basic_repository: "Basic repository"
+repo_failed_to_send_component: "Failed to send component"
+repo_click_text_here: "Click here to insert the text below into the command line"
+repo_group_holder: "Repositories Menu"
+repo_err_index_not_found: "Repository with such an index does not exist."
+repo_group_successfully_renamed: "Repository successfully renamed."
+repo_err_invalid_index_format: "Invalid index format. Index must be a number."
+repo_err_group_rename: "Error occurred while renaming the repository: "
+repo_error_update_failed: "Error during update."
+repo_err_item_not_in_hand: "You do not have an item in your hand."
+repo_success_item_replaced: "Item successfully replaced."
+repo_error_item_replace_failed: "Error replacing item."
+repo_success_update: "Update successful."
+repo_err_invalid_name_lore_format: "Invalid format for name and lore. Use slash (/) to separate."
+repo_success_item_added: "Entry successfully added to the repository."
+repo_success_item_deleted_reindexed: "Entry deleted, repository storage updated and reindexed."
+
+# Language Commands
+repo_language_is_selected: "You have selected the following languages:"
+repo_err_language_code_2letters: "Language code must consist of 2 letters."
+repo_err_invalid_language_code: "Invalid language code: "
+repo_you_language: "List of languages you have selected:"
+repo_you_have_not_set_language: "You have not selected any languages, Minecraft settings will be used."
+repo_cleared_the_language: "You have cleared the language list, Minecraft settings will be used."
+
+# Names of basic repository items, can be added or changed according to content in config.yml, keys must match.
+command_rules: "Rules"
+command_afk: "Menu"
+command_spawn: "Teleport to Spawn"
+command_sethome: "Set Home Point"
+command_home: "Teleport to Home Point"
+command_tpa: "Teleport to Player"
+command_tpaccept: "Accept Teleport Request"
+command_tpdeny: "Deny Teleport Request"
+command_afk: "AFK"
+command_msg: "Private Message"
+command_repo_qui: 'Repository Menu'

@@ -1,3 +1,8 @@
+# Завантаження конфігурацій
+repo_configuration_reloaded: "Конфігурацію перезавантажено."
+repo_err_reloading_configuration: "Помилка перезавантаження конфігурації."
+repo_language_reloaded: "Мовні файли та конфігурацію перезавантажено."
+
 # Загальні ключі
 repo_err_not_have_permission: "Ви не маєте дозволу на використання цієї команди."
 repo_err_command_only_player: "Ця команда може виконуватися тільки гравцем."
@@ -22,6 +27,14 @@ repo_err_invalid_name_lore_format: "Неправильний формат для
 repo_success_item_added: "Запис успішно додано до репозиторію."
 repo_success_item_deleted_reindexed: "Запис видалено, сховище репозиторію оновлено та переіндексовано."
 
+# Мовні команди
+repo_language_is_selected: "Ви обрали наступні мови:"
+repo_err_language_code_2letters: "Код мови має складатися з 2 букв."
+repo_err_invalid_language_code: "Недійсний код мови: "
+repo_you_language: "Список обраних вами мов:"
+repo_you_have_not_set_language: "Ви не обрали жодної мови, використовуються налаштування майнкрафту."
+repo_cleared_the_language: "Ви очистили список мов, будуть використовуватися налаштування майнкрафту."
+
 # Назви елементів базового репозиторію, можна додавати чи змінювати відповідно до вмісту у config.yml, ключі повинні відповідати.
 command_rules: "Правила"
 command_afk: "Меню"
@@ -35,25 +48,3 @@ command_afk: "АФК"
 command_msg: "Приватне повідомлення"
 command_repo_qui: 'Меню репозиторія'
 
-
-err_not_alloved_config: "Команда не дозволена в налаштуваннях конфігурації."
-#
-# 2 Завантаження конфігурацій
-err_folder_is_empty: "Папка порожня або сталася помилка при її читанні."
-err_folder_is_notexist: "Папка не існує або це не папка."
-err_reloading_configuration: "Помилка перезавантаження конфігурації."
-created_default_configuration: "Створена конфігурація за замовчуванням."
-configuration_reloaded: "Конфігурацію перезавантажено."
-repo_language_reloaded: "Мовні файли та конфігурацію перезавантажено."
-#
-# 3 Мовні команди
-err_language_code_2letters: "Код мови має складатися з 2 букв. "
-err_invalid_language_code: "Недійсний код мови: "
-you_language: "Список обраних вами мов: "
-you_have_not set_language: "Ви не обрали жодної мови, використовуються налаштування майнкрафту "
-cleared_the_language: "Ви очистили список мов, будуть використовуватися налаштування майнкрафту "
-err_no_item_data_found: "Не знайдено жодних даних для вказаної мови та ключа. "
-keys_for_language: "Ключі для мови "
-language_is_selected: "Ви обрали наступні мови: "
-
-################

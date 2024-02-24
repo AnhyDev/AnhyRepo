@@ -1,23 +1,49 @@
-# 1 Generale
-err_not_have_permission: "Non hai il permesso di usare questo comando."
-err_not_alloved_config: "Il comando non è permesso nelle impostazioni di configurazione."
-err_command_only_player: "Questo comando può essere eseguito solo da un giocatore."
-err_command_format: "Formato del comando: "
-#
-# 2 Caricamento configurazioni
-err_folder_is_empty: "La cartella è vuota o si è verificato un errore durante la lettura."
-err_folder_is_notexist: "La cartella non esiste o non è una cartella."
-err_reloading_configuration: "Errore nel ricaricare la configurazione."
-created_default_configuration: "Configurazione predefinita creata."
-configuration_reloaded: "Configurazione ricaricata."
-language_reloaded: "File di lingua e configurazione ricaricati."
-#
-# 3 Comandi lingua
-err_language_code_2letters: "Il codice della lingua deve essere di 2 lettere. "
-err_invalid_language_code: "Codice lingua non valido: "
-you_language: "Elenco delle lingue che hai scelto: "
-you_have_not_set_language: "Non hai scelto nessuna lingua, verranno utilizzate le impostazioni di Minecraft "
-cleared_the_language: "Hai cancellato l'elenco delle lingue, verranno utilizzate le impostazioni di Minecraft "
-err_no_item_data_found: "Nessun dato trovato per la lingua e la chiave specificate. "
-keys_for_language: "Chiavi per la lingua "
-language_is_selected: "Hai selezionato le seguenti lingue: "
+# Ricaricare le Configurazioni
+repo_configuration_reloaded: "Configurazione ricaricata."
+repo_err_reloading_configuration: "Errore nel ricaricare la configurazione."
+repo_language_reloaded: "File di lingua e configurazione ricaricati."
+
+# Chiavi Generali
+repo_err_not_have_permission: "Non hai il permesso di usare questo comando."
+repo_err_command_only_player: "Questo comando può essere eseguito solo da un giocatore."
+repo_err_command_format: "Formato del comando:"
+
+# Lavorare con i Repository
+repo_error_occurred_repository: "Si è verificato un errore durante l'elaborazione del repository:"
+repo_basic_repository: "Repository Base"
+repo_failed_to_send_component: "Invio del componente fallito"
+repo_click_text_here: "Clicca qui per inserire il testo sottostante nella riga di comando"
+repo_group_holder: "Menu dei Repository"
+repo_err_index_not_found: "Nessun repository trovato con questo indice."
+repo_group_successfully_renamed: "Repository rinominato con successo."
+repo_err_invalid_index_format: "Formato dell'indice non valido. L'indice deve essere un numero."
+repo_err_group_rename: "Errore durante la rinominazione del repository: "
+repo_error_update_failed: "Errore durante l'aggiornamento."
+repo_err_item_not_in_hand: "Non hai un oggetto in mano."
+repo_success_item_replaced: "Oggetto sostituito con successo."
+repo_error_item_replace_failed: "Errore nella sostituzione dell'oggetto."
+repo_success_update: "Aggiornamento riuscito."
+repo_err_invalid_name_lore_format: "Formato non valido per nome e lore. Usare slash (/) per separare."
+repo_success_item_added: "Voce aggiunta con successo al repository."
+repo_success_item_deleted_reindexed: "Voce cancellata, storage del repository aggiornato e reindicizzato."
+
+# Comandi Lingua
+repo_language_is_selected: "Hai selezionato le seguenti lingue:"
+repo_err_language_code_2letters: "Il codice lingua deve essere di 2 lettere."
+repo_err_invalid_language_code: "Codice lingua non valido: "
+repo_you_language: "Elenco delle lingue che hai selezionato:"
+repo_you_have_not_set_language: "Non hai selezionato nessuna lingua, verranno utilizzate le impostazioni di Minecraft."
+repo_cleared_the_language: "Hai cancellato l'elenco delle lingue, verranno utilizzate le impostazioni di Minecraft."
+
+# Nomi degli elementi del repository base, possono essere aggiunti o modificati in base al contenuto in config.yml, le chiavi devono corrispondere.
+command_rules: "Regole"
+command_afk: "Menu"
+command_spawn: "Teletrasporto allo Spawn"
+command_sethome: "Imposta Punto Casa"
+command_home: "Teletrasporto al Punto Casa"
+command_tpa: "Teletrasporto al Giocatore"
+command_tpaccept: "Accetta Richiesta di Teletrasporto"
+command_tpdeny: "Nega Richiesta di Teletrasporto"
+command_afk: "AFK"
+command_msg: "Messaggio Privato"
+command_repo_qui: 'Menu del Repository'

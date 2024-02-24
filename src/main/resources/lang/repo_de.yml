@@ -1,23 +1,49 @@
-# 1 Allgemein
-err_not_have_permission: "Sie haben keine Berechtigung, diesen Befehl zu verwenden."
-err_not_alloved_config: "Der Befehl ist in den Konfigurationseinstellungen nicht erlaubt."
-err_command_only_player: "Dieser Befehl kann nur von einem Spieler ausgeführt werden."
-err_command_format: "Befehlsformat: "
-#
-# 2 Laden von Konfigurationen
-err_folder_is_empty: "Der Ordner ist leer oder ein Fehler ist beim Lesen aufgetreten."
-err_folder_is_notexist: "Der Ordner existiert nicht oder ist kein Ordner."
-err_reloading_configuration: "Fehler beim Neuladen der Konfiguration."
-created_default_configuration: "Standardkonfiguration erstellt."
-configuration_reloaded: "Konfiguration neu geladen."
-language_reloaded: "Sprachdateien und Konfiguration neu geladen."
-#
-# 3 Sprachbefehle
-err_language_code_2letters: "Sprachcode muss aus 2 Buchstaben bestehen. "
-err_invalid_language_code: "Ungültiger Sprachcode: "
-you_language: "Liste der von Ihnen gewählten Sprachen: "
-you_have_not_set_language: "Sie haben keine Sprache ausgewählt, es werden Minecraft-Einstellungen verwendet "
-cleared_the_language: "Sie haben die Sprachliste gelöscht, es werden Minecraft-Einstellungen verwendet "
-err_no_item_data_found: "Keine Daten für die angegebene Sprache und Schlüssel gefunden. "
-keys_for_language: "Schlüssel für Sprache "
-language_is_selected: "Sie haben folgende Sprachen ausgewählt: "
+# Konfigurationen neu laden
+repo_configuration_reloaded: "Konfiguration neu geladen."
+repo_err_reloading_configuration: "Fehler beim Neuladen der Konfiguration."
+repo_language_reloaded: "Sprachdateien und Konfiguration neu geladen."
+
+# Allgemeine Schlüssel
+repo_err_not_have_permission: "Sie haben keine Berechtigung, diesen Befehl zu verwenden."
+repo_err_command_only_player: "Dieser Befehl kann nur von einem Spieler ausgeführt werden."
+repo_err_command_format: "Befehlsformat:"
+
+# Mit Repositories arbeiten
+repo_error_occurred_repository: "Ein Fehler ist bei der Verarbeitung des Repositories aufgetreten:"
+repo_basic_repository: "Basisrepository"
+repo_failed_to_send_component: "Komponente konnte nicht gesendet werden"
+repo_click_text_here: "Klicken Sie hier, um den Text unten in die Befehlszeile einzufügen"
+repo_group_holder: "Repositories-Menü"
+repo_err_index_not_found: "Repository mit diesem Index existiert nicht."
+repo_group_successfully_renamed: "Repository erfolgreich umbenannt."
+repo_err_invalid_index_format: "Ungültiges Indexformat. Der Index muss eine Zahl sein."
+repo_err_group_rename: "Fehler beim Umbenennen des Repositories: "
+repo_error_update_failed: "Fehler beim Update."
+repo_err_item_not_in_hand: "Sie haben keinen Gegenstand in der Hand."
+repo_success_item_replaced: "Gegenstand erfolgreich ersetzt."
+repo_error_item_replace_failed: "Fehler beim Ersetzen des Gegenstands."
+repo_success_update: "Update erfolgreich."
+repo_err_invalid_name_lore_format: "Ungültiges Format für Namen und Lore. Verwenden Sie Slash (/) zur Trennung."
+repo_success_item_added: "Eintrag erfolgreich zum Repository hinzugefügt."
+repo_success_item_deleted_reindexed: "Eintrag gelöscht, Repositoriumsspeicher aktualisiert und reindiziert."
+
+# Sprachbefehle
+repo_language_is_selected: "Sie haben folgende Sprachen ausgewählt:"
+repo_err_language_code_2letters: "Sprachcode muss aus 2 Buchstaben bestehen."
+repo_err_invalid_language_code: "Ungültiger Sprachcode: "
+repo_you_language: "Liste der von Ihnen ausgewählten Sprachen:"
+repo_you_have_not_set_language: "Sie haben keine Sprachen ausgewählt, Minecraft-Einstellungen werden verwendet."
+repo_cleared_the_language: "Sie haben die Sprachliste gelöscht, Minecraft-Einstellungen werden verwendet."
+
+# Namen von Basisrepository-Elementen, können je nach Inhalt in config.yml hinzugefügt oder geändert werden, Schlüssel müssen übereinstimmen.
+command_rules: "Regeln"
+command_afk: "Menü"
+command_spawn: "Teleport zum Spawn"
+command_sethome: "Heimatpunkt setzen"
+command_home: "Teleport zum Heimatpunkt"
+command_tpa: "Teleport zu Spieler"
+command_tpaccept: "Teleportanfrage akzeptieren"
+command_tpdeny: "Teleportanfrage ablehnen"
+command_afk: "AFK"
+command_msg: "Private Nachricht"
+command_repo_qui: 'Repository-Menü'

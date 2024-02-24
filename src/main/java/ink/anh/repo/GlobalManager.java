@@ -142,10 +142,10 @@ public class GlobalManager extends LibraryManager {
 	            langManager = null;
 	            setLanguageManager();
 	            new RepoDataHandler().removeAllRepositoryData();
-	            Logger.info(plugin, Translator.translateKyeWorld(instance, "configuration_reloaded" , new String[] {defaultLang}));
+	            Logger.info(plugin, Translator.translateKyeWorld(instance, "repo_configuration_reloaded" , new String[] {defaultLang}));
 	        } catch (Exception e) {
 	            e.printStackTrace();
-	            Logger.error(plugin, Translator.translateKyeWorld(instance, "err_reloading_configuration ", new String[] {defaultLang}));
+	            Logger.error(plugin, Translator.translateKyeWorld(instance, "repo_err_reloading_configuration ", new String[] {defaultLang}));
 	        }
 		});
         return true;
