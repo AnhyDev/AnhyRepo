@@ -10,7 +10,6 @@
 language: ua
 # Name of the plugin for display to users in chat:
 plugin_name: AnhyRepo
-debug: true
 
 # Database settings:
 database:

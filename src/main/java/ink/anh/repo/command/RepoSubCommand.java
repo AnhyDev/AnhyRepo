@@ -70,9 +70,12 @@ public class RepoSubCommand extends Sender {
 				Repository[] getRepos = RepoUtils.createNewRepositories(player, args);
 	        	if (getRepos != null) {
 					new InventoryManager(repoPlugin).openRepoGroupInventory(player);
+	        	} else {
+	                sendMessage(new MessageForFormatting("repo_error_update_failed", null), MessageType.WARNING, sender);
 	        	}
 	        }
 	    } catch (Exception e) {
+            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
 	        Logger.error(repoPlugin, translate(null, "repo_error_occurred_repository ") + e.getMessage());
 	        e.printStackTrace();
 	    }
@@ -147,7 +150,11 @@ public class RepoSubCommand extends Sender {
 
             Repository[] repositories = RepoUtils.getRepositories(player);
             Repository repo = getRepository(repositories, index);
-            repo.addItem(itemName, itemLore, null);
+            
+            if (!repo.addItem(itemName, itemLore, null)) {
+                sendMessage(new MessageForFormatting("repo_error_update_failed", null), MessageType.WARNING, sender);
+                return;
+            }
 
             // Оновлення даних репозиторіїв
             RepoUtils.addRepositories(player, repositories, true);
@@ -195,8 +202,7 @@ public class RepoSubCommand extends Sender {
         } catch (NumberFormatException e) {
             sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (IllegalArgumentException e) {
-            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
-	        e.printStackTrace();
+        	
         } catch (Exception e) {
             sendMessage(new MessageForFormatting("repo_error_update_failed " + e.getMessage(), null), MessageType.WARNING, sender);
             e.printStackTrace();
@@ -257,8 +263,7 @@ public class RepoSubCommand extends Sender {
         } catch (NumberFormatException e) {
             sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (IllegalArgumentException e) {
-            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
-	        e.printStackTrace();
+
         } catch (Exception e) {
             sendMessage(new MessageForFormatting("repo_error_update_failed " + e.getMessage(), null), MessageType.WARNING, sender);
             e.printStackTrace();
@@ -299,8 +304,7 @@ public class RepoSubCommand extends Sender {
         } catch (NumberFormatException e) {
             sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (IllegalArgumentException e) {
-            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
-	        e.printStackTrace();
+
         } catch (Exception e) {
             sendMessage(new MessageForFormatting("repo_error_update_failed " + e.getMessage(), null), MessageType.WARNING, sender);
             e.printStackTrace();

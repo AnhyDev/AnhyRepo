@@ -86,8 +86,13 @@ public class RepoUtils {
             if (args.length > 1) {
                 groupName = String.join(" ", Arrays.copyOfRange(args, 1, args.length));
             } else {
-                Slots slotName = Slots.values()[index+1];
-                groupName = slotName.name().toLowerCase();
+            	int newIndex = index+1;
+            	if (newIndex < Slots.values().length) {
+                    Slots slotName = Slots.values()[index+1];
+                    groupName = slotName.name().toLowerCase();
+            	} else {
+            		return null;
+            	}
             }
 
             // Створення нового репозиторію
