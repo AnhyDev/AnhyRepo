@@ -5,6 +5,12 @@ repo_basic_repository: "Базовий репозиторій"
 repo_failed_to_send_component: "Помилка відправки компонента"
 repo_click_text_here: "Клікніть Для вставки тексту що нижче в командний рядок"
 repo_group_holder: "Меню репозиторіїв"
+repo_err_command_only_player: "Ця команда може виконуватися тільки гравцем."
+repo_err_command_format: "Формат команди:"
+repo_err_index_not_found: "Репозиторій з таким індексом не існує."
+repo_group_successfully_renamed: "Репозиторій успішно перейменовано."
+repo_err_index_no_number: "Неправильний формат індексу. Індекс повинен бути числом."
+repo_err_group_rename: "Сталася помилка при перейменуванні репозиторію: "
 
 command_rules: "Правила"
 command_afk: "Меню"
@@ -20,8 +26,6 @@ command_repo_qui: 'Меню репозиторія'
 
 
 err_not_alloved_config: "Команда не дозволена в налаштуваннях конфігурації."
-err_command_only_player: "Ця команда може виконуватися тільки гравцем."
-err_command_format: "Формат команди: "
 #
 # 2 Завантаження конфігурацій
 err_folder_is_empty: "Папка порожня або сталася помилка при її читанні."

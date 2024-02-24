@@ -16,6 +16,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import ink.anh.api.items.ItemStackSerializer;
+import ink.anh.api.lingo.Translator;
+import ink.anh.api.utils.StringUtils;
+import ink.anh.repo.AnhyRepo;
 import net.md_5.bungee.api.ChatColor;
 
 import java.lang.reflect.Type;
@@ -31,17 +34,17 @@ public class Repository {
 
     public Repository(Slots slot, String groupName, Map<KeyStore, ItemStack> storage) {
         this.slot = slot;
-        this.groupName = groupName;
+        setGroupName(groupName);
         this.storage = new TreeMap<>(storage);
     }
     
-    public Repository(String groupName, Map<String, String> initialStorage) {
+    public Repository(AnhyRepo repoPlugin, Map<String, String> initialStorage, String[] langs) {
         this.slot = Slots.SLOT0;
-        this.groupName = groupName;
+        setGroupName(Translator.translateKyeWorld(repoPlugin.getGlobalManager(), "repo_basic_repository", langs));
         this.storage = new TreeMap<>();
         
         for (Map.Entry<String, String> entry : initialStorage.entrySet()) {
-            this.addItem(entry.getKey(), entry.getValue(), null);
+            this.addItem(Translator.translateKyeWorld(repoPlugin.getGlobalManager(), entry.getKey(), langs), entry.getValue(), null);
         }
     }
     
@@ -53,6 +56,9 @@ public class Repository {
 
     public boolean addItem(String keyName, String value, ItemStack stack) {
         if (storage.size() >= MAX_SIZE) return false;
+        
+        keyName = StringUtils.colorize(keyName);
+        value = StringUtils.colorize(value);
 
         int newIndex = 1;
         for (; newIndex <= storage.size(); newIndex++) {
@@ -113,6 +119,7 @@ public class Repository {
     public boolean updateItemLore(int index, String newLore) {
         KeyStore keyToUpdate = new KeyStore(index, "");
         ItemStack itemToUpdate = storage.get(keyToUpdate);
+        newLore = StringUtils.colorize(newLore);
 
         if (itemToUpdate != null) {
             ItemMeta meta = itemToUpdate.getItemMeta();
@@ -137,16 +144,17 @@ public class Repository {
                 break;
             }
         }
+
+        newName = StringUtils.colorize(newName);
+        KeyStore newKey = new KeyStore(index, newName);
         
         if (keyToUpdate != null) {
             ItemStack currentItem = storage.get(keyToUpdate);
             ItemMeta meta = currentItem.getItemMeta();
             if (meta != null) {
-                meta.setDisplayName(keyToUpdate.displayName());
+                meta.setDisplayName(newKey.displayName());
                 currentItem.setItemMeta(meta);
             }
-
-            KeyStore newKey = new KeyStore(index, newName);
             storage.remove(keyToUpdate);
             storage.put(newKey, currentItem);
             return true;
@@ -187,6 +195,23 @@ public class Repository {
 
         storage.clear();
         storage.putAll(updatedStorage);
+    }
+
+    public boolean removeItem(int index) {
+        KeyStore keyToRemove = null;
+        for (KeyStore key : storage.keySet()) {
+            if (key.getIndex() == index) {
+                keyToRemove = key;
+                break;
+            }
+        }
+
+        if (keyToRemove != null) {
+            storage.remove(keyToRemove);
+            reindexKeyStores();
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -241,7 +266,7 @@ public class Repository {
     }
 
     public void setGroupName(String groupName) {
-        this.groupName = groupName;
+        this.groupName = StringUtils.colorize(groupName);
     }
 
     public Map<KeyStore, ItemStack> getStorageClone() {

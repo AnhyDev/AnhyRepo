@@ -4,7 +4,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -62,43 +64,65 @@ public class InventoryListener implements Listener {
         if (clickedSlot < event.getView().getTopInventory().getSize()) {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
+            
 
-            ItemStack item = event.getView().getItem(clickedSlot);
-            if (item == null || item.getType() == Material.AIR) {
-            	return;
+            if (event.getClick() == ClickType.LEFT) {
+                ItemStack item = event.getView().getItem(clickedSlot);
+                if (item == null || item.getType() == Material.AIR) {
+                	return;
+                }
+                
+                ItemMeta meta = item.getItemMeta();
+                if (meta == null || !meta.hasDisplayName() || !meta.hasLore()) {
+                    return;
+                }
+                
+                String nameText = meta.getDisplayName();
+                String textToInsert = meta.getLore().get(0);
+                String preText = Translator.translateKyeWorld(repoPlugin.getGlobalManager(), "repo_click_text_here \n", LangUtils.getPlayerLanguage(player));
+                String hoverText = textToInsert;
+
+                // Створення компоненту для спливаючого повідомлення
+                MessageComponents hoverComponents = MessageComponents.builder()
+                        .content(preText)
+                        .color("YELLOW") // Задаємо жовтий колір для першого рядка
+                        .append(MessageComponents.builder().content("\n" + hoverText).build()) // Додаємо другий рядок без змін
+                        .build();
+
+                // Створення основного компоненту та додавання до нього спливаючого повідомлення
+                MessageComponents messageComponents = MessageComponents.builder()
+                        .content(nameText) // Текст, який буде відображатися зазвичай
+                        .hoverComponent(hoverComponents) // Додаємо спливаюче повідомлення
+                        .insertTextChat(ChatColor.stripColor(textToInsert))
+                        .color("GOLD")
+                        .build();
+
+
+
+                
+                Messenger.sendMessage(AnhyRepo.getInstance(), player, messageComponents, 
+                		Translator.translateKyeWorld(repoPlugin.getGlobalManager(), "repo_failed_to_send_component",  LangUtils.getPlayerLanguage(player)));
+                player.closeInventory();
+            } else {
+            	new InventoryManager(repoPlugin).openRepoGroupInventory(player);
             }
+        }
+    }
+    
+    @EventHandler
+    public void onInventoryDrag(InventoryDragEvent event) {
+        InventoryHolder holder = event.getInventory().getHolder();
+        
+        // Перевірка, чи інвентар належить до одного з кастомних інвентарів
+        if (holder instanceof RepoGroupHolder || holder instanceof RepositoryHolder) {
+            // Перевіряємо, чи залучені до перетягування слоти належать верхньому інвентарю
+            boolean cancel = event.getRawSlots().stream().anyMatch(slot -> 
+                slot < event.getView().getTopInventory().getSize()
+            );
             
-            ItemMeta meta = item.getItemMeta();
-            if (meta == null || !meta.hasDisplayName() || !meta.hasLore()) {
-                return;
+            if (cancel) {
+                event.setCancelled(true);
             }
-            
-            String nameText = meta.getDisplayName();
-            String textToInsert = meta.getLore().get(0);
-            String preText = Translator.translateKyeWorld(repoPlugin.getGlobalManager(), "repo_click_text_here \n", LangUtils.getPlayerLanguage(player));
-            String hoverText = textToInsert;
-
-            // Створення компоненту для спливаючого повідомлення
-            MessageComponents hoverComponents = MessageComponents.builder()
-                    .content(preText)
-                    .color("YELLOW") // Задаємо жовтий колір для першого рядка
-                    .append(MessageComponents.builder().content("\n" + hoverText).build()) // Додаємо другий рядок без змін
-                    .build();
-
-            // Створення основного компоненту та додавання до нього спливаючого повідомлення
-            MessageComponents messageComponents = MessageComponents.builder()
-                    .content(nameText) // Текст, який буде відображатися зазвичай
-                    .hoverComponent(hoverComponents) // Додаємо спливаюче повідомлення
-                    .insertTextChat(ChatColor.stripColor(textToInsert))
-                    .color("GOLD")
-                    .build();
-
-
-
-            
-            Messenger.sendMessage(AnhyRepo.getInstance(), player, messageComponents, 
-            		Translator.translateKyeWorld(repoPlugin.getGlobalManager(), "repo_failed_to_send_component",  LangUtils.getPlayerLanguage(player)));
-            player.closeInventory();
         }
     }
 

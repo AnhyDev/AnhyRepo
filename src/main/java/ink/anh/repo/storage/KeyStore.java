@@ -13,7 +13,7 @@ public class KeyStore implements Comparable<KeyStore> {
 	
 	public KeyStore(int index, String keyName) {
 		setIndex(index);
-		this.keyName = keyName;
+		setKeyName(keyName);
 	}
 
 	public int getIndex() {

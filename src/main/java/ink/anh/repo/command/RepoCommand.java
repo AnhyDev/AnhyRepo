@@ -31,33 +31,32 @@ public class RepoCommand extends Sender implements CommandExecutor {
                 case "gui":
                     new RepoSubCommand(repoPlugin).openGui(sender, args);
                     break;
-                    
-
+                case "rg":
+                case "regroup":
+                    new RepoSubCommand(repoPlugin).renameRepository(sender, args);
+                    break;
                 case "n":
                 case "new":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
+                    new RepoSubCommand(repoPlugin).newGroup(sender, args);
                     break;
-                case "add":
                 case "a":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
+                case "add":
+                    new RepoSubCommand(repoPlugin).addItemToRepository(sender, args);
                     break;
-                case "rename":
                 case "rn":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
+                case "rename":
+                    new RepoSubCommand(repoPlugin).renameItemInRepository(sender, args);
                     break;
                 case "ri":
                 case "reitem":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
+                    new RepoSubCommand(repoPlugin).replaceItemInRepository(sender, args);
                     break;
                 case "rt":
                 case "retext":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
-                    break;
-                case "reindex":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
+                    new RepoSubCommand(repoPlugin).updateItemLoreInRepository(sender, args);
                     break;
                 case "remove":
-                    new RepoSubCommand(repoPlugin).openGui(sender, args);
+                    new RepoSubCommand(repoPlugin).removeItemAndReindex(sender, args);
                     break;
                     
                     

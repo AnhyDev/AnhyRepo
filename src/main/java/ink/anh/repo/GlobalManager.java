@@ -1,9 +1,8 @@
 package ink.anh.repo;
 
 import java.io.File;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
-
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.Plugin;
@@ -14,7 +13,6 @@ import ink.anh.api.lingo.lang.LanguageManager;
 import ink.anh.api.messages.Logger;
 import ink.anh.repo.db.MySQLConfig;
 import ink.anh.repo.storage.RepoDataHandler;
-import ink.anh.repo.storage.Repository;
 import net.md_5.bungee.api.ChatColor;
 
 public class GlobalManager extends LibraryManager {
@@ -30,7 +28,7 @@ public class GlobalManager extends LibraryManager {
     private boolean useMySQL;
     private MySQLConfig mySQLConfig;
 	
-	private Repository defaultRepository;
+	private Map<String, String> defaultRepository;
 	
 	private GlobalManager(AnhyRepo plugin) {
 		super(plugin);
@@ -79,7 +77,7 @@ public class GlobalManager extends LibraryManager {
 		return mySQLConfig;
 	}
 
-	public Repository getDefaultRepository() {
+	public Map<String, String> getDefaultRepository() {
 		return defaultRepository;
 	}
     
@@ -90,13 +88,13 @@ public class GlobalManager extends LibraryManager {
         useMySQL = "MySQL".equalsIgnoreCase(plugin.getConfig().getString("database.type"));
         setLanguageManager();
         setMySQLConfig();
-        defaultRepository = new Repository("repo_basic_repository", loadRepoDefaultCommands());
+        defaultRepository = loadRepoDefaultCommands();
     }
 
     public Map<String, String> loadRepoDefaultCommands() {
     	if (debug) Logger.warn(plugin, "Start loaded default repository");
         ConfigurationSection repoDefaultSection = plugin.getConfig().getConfigurationSection("repo_default");
-        Map<String, String> commandsConfig = new TreeMap<>();
+        Map<String, String> commandsConfig = new LinkedHashMap<>();
 
         if (debug) Logger.warn(plugin, "repoDefaultSection != null: " + (repoDefaultSection != null));
         if (repoDefaultSection != null) {
