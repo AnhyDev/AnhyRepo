@@ -12,6 +12,7 @@ import ink.anh.api.messages.MessageType;
 import ink.anh.repo.AnhyRepo;
 import ink.anh.repo.gui.InventoryManager;
 import ink.anh.repo.storage.Repository;
+import ink.anh.repo.storage.Slots;
 import ink.anh.repo.utils.RepoUtils;
 
 public class RepoSubCommand extends Sender {
@@ -21,13 +22,41 @@ public class RepoSubCommand extends Sender {
 	}
 
 	public void openGui(CommandSender sender, String[] args) {
+    	Player player = null;
 	    try {
-	    	Player player = null;
 			if (sender instanceof Player) {
 				player = (Player) sender;
+
+		        if (args.length > 1) {
+		            int index = Integer.parseInt(args[1]) - 1;
+
+		            Repository[] repositories = RepoUtils.getRepositories(player);
+		            
+		            boolean hasRepositories = false;
+
+		            if (repositories != null && repositories.length > 0 && repositories.length <= Slots.values().length) {
+		                
+		                for (int i = 0; i < repositories.length; i++) {
+		                    if (index == i && repositories[i] != null) {
+		                    	hasRepositories = true;
+		                        break;
+		                    }
+		                }
+		            }
+		            if (hasRepositories) {
+		            	new InventoryManager(repoPlugin).openRepositoryInventory(player, index);
+			            return;
+		            }
+		        }
 				new InventoryManager(repoPlugin).openRepoGroupInventory(player);
 			}
-	    } catch (Exception e) {
+	    } catch (NumberFormatException e) {
+	    	if (player != null) {
+	    		new InventoryManager(repoPlugin).openRepoGroupInventory(player);
+	    	} else {
+	    		sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
+	    	}
+        } catch (Exception e) {
 	        Logger.error(repoPlugin, translate(null, "repo_error_occurred_repository ") + e.getMessage());
 	        e.printStackTrace();
 	    }
@@ -58,8 +87,7 @@ public class RepoSubCommand extends Sender {
 
         // Переконуємося, що достатньо аргументів
         if (args.length < 3) {
-            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
-            sender.sendMessage("repo_err_command_format /repo <regroup> <index> <new group name> (<index>: 1,2,3,4,5,6,7,8,9)");
+            sendMessage(new MessageForFormatting("repo_err_command_format /repo <regroup> <repo_index> <new group name>", null), MessageType.WARNING, sender);
             return;
         }
 
@@ -81,10 +109,10 @@ public class RepoSubCommand extends Sender {
             repositories[index].setGroupName(newName);
             RepoUtils.addRepositories(player, repositories, true);
 
-            sendMessage(new MessageForFormatting("repo_group_successfully_renamed", null), MessageType.WARNING, sender);
+            sendMessage(new MessageForFormatting("repo_group_successfully_renamed", null), MessageType.IMPORTANT, sender);
 
         } catch (NumberFormatException e) {
-            sendMessage(new MessageForFormatting("repo_err_index_no_number", null), MessageType.WARNING, sender);
+            sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (Exception e) {
             sendMessage(new MessageForFormatting("repo_err_group_rename", null), MessageType.WARNING, sender);
             e.printStackTrace();
@@ -94,12 +122,12 @@ public class RepoSubCommand extends Sender {
 
     public void addItemToRepository(CommandSender sender, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Цю команду може виконати лише гравець.");
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
             return;
         }
 
-        if (args.length < 4) { // Переконуємося, що є достатньо аргументів для індексу, назви та лору
-            sender.sendMessage("Недостатньо аргументів. Використання: /команда <індекс_репозиторію> <назва>/<лор>");
+        if (args.length < 4) {
+            sendMessage(new MessageForFormatting("repo_err_command_only_player /repo add <repo_index> <name>/<text> (/ar a <i> <n>/<text>)", null), MessageType.WARNING, sender);
             return;
         }
 
@@ -111,7 +139,7 @@ public class RepoSubCommand extends Sender {
             // Розділення рядка на назву та лор за допомогою слеша
             String[] parts = combinedArgs.split("/", 2);
             if (parts.length < 2) {
-                sender.sendMessage("Неправильний формат для назви та лору. Потрібно використати слеш (/) для розділення.");
+                sendMessage(new MessageForFormatting("repo_err_invalid_name_lore_format", null), MessageType.WARNING, sender);
                 return;
             }
             String itemName = parts[0].trim();
@@ -124,23 +152,24 @@ public class RepoSubCommand extends Sender {
             // Оновлення даних репозиторіїв
             RepoUtils.addRepositories(player, repositories, true);
 
-            sender.sendMessage("Елемент успішно додано до репозиторію.");
+            sendMessage(new MessageForFormatting("repo_success_item_added", null), MessageType.IMPORTANT, sender);
         } catch (NumberFormatException e) {
-            sender.sendMessage("Неправильний формат індексу. Індекс повинен бути числом.");
+            sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (Exception e) {
-            sender.sendMessage("Сталася помилка при додаванні елемента в репозиторій: " + e.getMessage());
+            sendMessage(new MessageForFormatting("repo_error_update_failed", null), MessageType.WARNING, sender);
             e.printStackTrace();
         }
     }
 
     public void replaceItemInRepository(CommandSender sender, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Цю команду може виконати лише гравець.");
+            
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
             return;
         }
 
         if (args.length < 3) {
-            sender.sendMessage("Недостатньо аргументів. Використання: /repo reitem <індекс_репозиторію> <індекс_предмету>");
+            sendMessage(new MessageForFormatting("repo_err_command_format /repo reitem <repo_index> <item_index>", null), MessageType.WARNING, sender);
             return;
         }
 
@@ -154,19 +183,22 @@ public class RepoSubCommand extends Sender {
             ItemStack itemInHand = player.getInventory().getItemInMainHand();
 
             if (itemInHand == null || itemInHand.getType() == Material.AIR) {
-                sender.sendMessage("У вас немає предмету в руці.");
+                sendMessage(new MessageForFormatting("repo_err_item_not_in_hand", null), MessageType.WARNING, sender);
                 return;
             }
 
             if (repo.updateItemStack(itemIndex, itemInHand)) {
-                sender.sendMessage("Предмет успішно замінено.");
+                sendMessage(new MessageForFormatting("repo_success_item_replaced", null), MessageType.IMPORTANT, sender);
             } else {
-                sender.sendMessage("Помилка при заміні предмету.");
+                sendMessage(new MessageForFormatting("repo_error_item_replace_failed", null), MessageType.WARNING, sender);
             }
+        } catch (NumberFormatException e) {
+            sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (IllegalArgumentException e) {
-            sender.sendMessage(e.getMessage());
+            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
+	        e.printStackTrace();
         } catch (Exception e) {
-            sender.sendMessage("Сталася помилка: " + e.getMessage());
+            sendMessage(new MessageForFormatting("repo_error_update_failed " + e.getMessage(), null), MessageType.WARNING, sender);
             e.printStackTrace();
         }
     }
@@ -175,25 +207,34 @@ public class RepoSubCommand extends Sender {
     	Repository[] repositories = updateText(sender, args, (repo, index, text) -> repo.updateKeyName(index, text));
 
         // Оновлення даних репозиторіїв
-        if (repositories != null) RepoUtils.addRepositories((Player) sender, repositories, true);
+        if (repositories != null) {
+        	RepoUtils.addRepositories((Player) sender, repositories, true);
+        } else {
+        	sendMessage(new MessageForFormatting("repo_error_update_failed", null), MessageType.WARNING, sender);
+        }
     }
 
     public void updateItemLoreInRepository(CommandSender sender, String[] args) {
     	Repository[] repositories = updateText(sender, args, (repo, index, text) -> repo.updateItemLore(index, text));
 
         // Оновлення даних репозиторіїв
-    	if (repositories != null) RepoUtils.addRepositories((Player) sender, repositories, true);
+        if (repositories != null) {
+        	RepoUtils.addRepositories((Player) sender, repositories, true);
+        } else {
+        	sendMessage(new MessageForFormatting("repo_error_update_failed", null), MessageType.WARNING, sender);
+        }
     }
 
     public Repository[] updateText(CommandSender sender, String[] args, RepositoryUpdateAction action) {
     	Repository[] repositories = null;
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Цю команду може виконати лише гравець.");
+            
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
             return repositories;
         }
 
         if (args.length < 4) {
-            sender.sendMessage("Недостатньо аргументів. Використання: /repo <команда> <індекс_репозиторію> <індекс_предмету> <текст>");
+            sendMessage(new MessageForFormatting("repo_err_command_format /repo rename(retext) <repo_index> <item_index> <new_text>", null), MessageType.WARNING, sender);
             return repositories;
         }
 
@@ -209,14 +250,17 @@ public class RepoSubCommand extends Sender {
             String combinedArgs = String.join(" ", Arrays.copyOfRange(args, 3, args.length));
 
             if (action.update(repo, itemIndex, combinedArgs)) {
-                sender.sendMessage("Оновлення успішне.");
+                sendMessage(new MessageForFormatting("repo_success_update", null), MessageType.IMPORTANT, sender);
             } else {
-                sender.sendMessage("Помилка при оновленні.");
+                sendMessage(new MessageForFormatting("repo_error_update_failed", null), MessageType.WARNING, sender);
             }
+        } catch (NumberFormatException e) {
+            sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
         } catch (IllegalArgumentException e) {
-            sender.sendMessage(e.getMessage());
+            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
+	        e.printStackTrace();
         } catch (Exception e) {
-            sender.sendMessage("Сталася помилка: " + e.getMessage());
+            sendMessage(new MessageForFormatting("repo_error_update_failed " + e.getMessage(), null), MessageType.WARNING, sender);
             e.printStackTrace();
         }
 		return repositories;
@@ -224,12 +268,13 @@ public class RepoSubCommand extends Sender {
 
     public void removeItemAndReindex(CommandSender sender, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Цю команду може виконати лише гравець.");
+            
+            sendMessage(new MessageForFormatting("repo_err_command_only_player", null), MessageType.WARNING, sender);
             return;
         }
 
         if (args.length < 3) {
-            sender.sendMessage("Недостатньо аргументів. Використання: /repo reitem <індекс_репозиторію> <індекс_предмету>");
+            sendMessage(new MessageForFormatting("repo_err_command_format /repo remove <repo_index> <item_index>", null), MessageType.WARNING, sender);
             return;
         }
 
@@ -240,7 +285,7 @@ public class RepoSubCommand extends Sender {
             Repository[] repositories = RepoUtils.getRepositories(player);
             
             if (repoIndex < 0 || repoIndex >= repositories.length || repositories[repoIndex] == null) {
-                sender.sendMessage("Репозиторій з таким індексом не існує.");
+                sendMessage(new MessageForFormatting("repo_err_index_not_found", null), MessageType.WARNING, sender);
                 return;
             }
 
@@ -250,18 +295,21 @@ public class RepoSubCommand extends Sender {
             // Оновлюємо дані репозиторіїв
             RepoUtils.addRepositories(player, repositories, true);
 
-            sender.sendMessage("Сховище репозиторію оновлено та переіндексовано.");
+            sendMessage(new MessageForFormatting("repo_success_item_deleted_reindexed", null), MessageType.IMPORTANT, sender);
         } catch (NumberFormatException e) {
-            sender.sendMessage("Неправильний формат індексу. Індекс повинен бути числом.");
+            sendMessage(new MessageForFormatting("repo_err_invalid_index_format", null), MessageType.WARNING, sender);
+        } catch (IllegalArgumentException e) {
+            sendMessage(new MessageForFormatting("repo_error_occurred_repository " + e.getMessage(), null), MessageType.WARNING, sender);
+	        e.printStackTrace();
         } catch (Exception e) {
-            sender.sendMessage("Сталася помилка: " + e.getMessage());
+            sendMessage(new MessageForFormatting("repo_error_update_failed " + e.getMessage(), null), MessageType.WARNING, sender);
             e.printStackTrace();
         }
     }
 
     private Repository getRepository(Repository[] repositories, int index) throws IllegalArgumentException {
         if (index < 0 || index >= repositories.length || repositories[index] == null) {
-            throw new IllegalArgumentException("Репозиторій з таким індексом не існує.");
+            throw new IllegalArgumentException("The repository with this index does not exist.");
         }
         return repositories[index];
     }

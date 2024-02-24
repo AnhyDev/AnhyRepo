@@ -1,17 +1,28 @@
-# 1 Загальне
+# Загальні ключі
 repo_err_not_have_permission: "Ви не маєте дозволу на використання цієї команди."
+repo_err_command_only_player: "Ця команда може виконуватися тільки гравцем."
+repo_err_command_format: "Формат команди:"
+
+# Робота з репозиторіями
 repo_error_occurred_repository: "Під час обробки сховища сталася помилка:"
 repo_basic_repository: "Базовий репозиторій"
 repo_failed_to_send_component: "Помилка відправки компонента"
 repo_click_text_here: "Клікніть Для вставки тексту що нижче в командний рядок"
 repo_group_holder: "Меню репозиторіїв"
-repo_err_command_only_player: "Ця команда може виконуватися тільки гравцем."
-repo_err_command_format: "Формат команди:"
 repo_err_index_not_found: "Репозиторій з таким індексом не існує."
 repo_group_successfully_renamed: "Репозиторій успішно перейменовано."
-repo_err_index_no_number: "Неправильний формат індексу. Індекс повинен бути числом."
+repo_err_invalid_index_format: "Неправильний формат індексу. Індекс повинен бути числом."
 repo_err_group_rename: "Сталася помилка при перейменуванні репозиторію: "
+repo_error_update_failed: "Помилка при оновленні."
+repo_err_item_not_in_hand: "У вас немає предмету в руці."
+repo_success_item_replaced: "Предмет успішно замінено."
+repo_error_item_replace_failed: "Помилка при заміні предмету."
+repo_success_update: "Оновлення успішне."
+repo_err_invalid_name_lore_format: "Неправильний формат для назви та тексту. Потрібно використати слеш (/) для розділення."
+repo_success_item_added: "Запис успішно додано до репозиторію."
+repo_success_item_deleted_reindexed: "Запис видалено, сховище репозиторію оновлено та переіндексовано."
 
+# Назви елементів базового репозиторію, можна додавати чи змінювати відповідно до вмісту у config.yml, ключі повинні відповідати.
 command_rules: "Правила"
 command_afk: "Меню"
 command_spawn: "Телепорт на Спавн"
