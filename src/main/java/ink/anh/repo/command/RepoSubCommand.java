@@ -187,14 +187,17 @@ public class RepoSubCommand extends Sender {
 
             Repository[] repositories = RepoUtils.getRepositories(player);
             Repository repo = getRepository(repositories, repoIndex);
-            ItemStack itemInHand = player.getInventory().getItemInMainHand();
-
-            if (itemInHand == null || itemInHand.getType() == Material.AIR) {
+            
+            ItemStack rawItem = player.getInventory().getItemInMainHand();
+            if (rawItem == null || rawItem.getType() == Material.AIR) {
                 sendMessage(new MessageForFormatting("repo_err_item_not_in_hand", null), MessageType.WARNING, sender);
                 return;
             }
+            
+            Material itemType = rawItem.getType();
+            ItemStack cloneItemInHand = new ItemStack(itemType);
 
-            if (repo.updateItemStack(itemIndex, itemInHand)) {
+            if (repo.updateItemStack(itemIndex, cloneItemInHand)) {
                 sendMessage(new MessageForFormatting("repo_success_item_replaced", null), MessageType.IMPORTANT, sender);
             } else {
                 sendMessage(new MessageForFormatting("repo_error_item_replace_failed", null), MessageType.WARNING, sender);
