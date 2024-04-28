@@ -17,21 +17,21 @@ Additionally, **AnhyRepo** is compatible with [**AnhyLingo**](https://dev.anh.in
 
 ## Commands
 
-The full version of the command: **/anhyrepo args...**, aliases: **/repo args...** or the shortest version **/ar args...**
+The full version of the command: `/anhyrepo args...`, aliases: `/repo args...` or the shortest version `/ar args...`
 
-- **/ar gui [i]**: Opens the repository menu. If [i] — the number of a repository is specified, it opens that particular repository.
-- **/ar new [repo_name]** or **/ar n [repo_name]**: Creates a new repository.
-- **/ar regroup [repo_index] [new_name]** or **/ar rg [repo_index] [new_name]**: Renames a repository.
-- **/ar add [repo_index] [name]/[text]** or **/ar a [repo_index] [name]/[text]**: Adds a new entry. The name and text are entered separated by a slash "/".
-- **/ar rename [repo_index] [item_index] [new_name]** or **/ar rn [repo_index] [item_index] [new_name]**: Renames an entry.
-- **/ar retext [repo_index] [item_index] [new_text]** or **/ar rt [repo_index] [item_index] [new_text]**: Changes the text in an entry.
-- **/ar reitem [repo_index] [item_index]** or **/ar ri [repo_index] [item_index]**: Changes the icon of an entry to the type of item held in hand.
-- **/ar remove [repo_index] [item_index]**: Removes an entry.
+- `/ar gui <i>`: Opens the repository menu. If <i> — the number of a repository is specified, it opens that particular repository.
+- `/ar new <repo_name>` or `/ar n <repo_name>`: Creates a new repository.
+- `/ar regroup <repo_index> <new_name>` or `/ar rg <repo_index> <new_name>`: Renames a repository.
+- `/ar add <repo_index> <name>/<text>` or `/ar a <repo_index> <name>/<text>`: Adds a new entry. The name and text are entered separated by a slash "/".
+- `/ar rename <repo_index> <item_index> <new_name>` or `/ar rn <repo_index> <item_index> <new_name>`: Renames an entry.
+- `/ar retext <repo_index> <item_index> <new_text>` or `/ar rt <repo_index> <item_index> <new_text>`: Changes the text in an entry.
+- `/ar reitem <repo_index> <item_index>` or `/ar ri <repo_index> <item_index>`: Changes the icon of an entry to the type of item held in hand.
+- `/ar remove <repo_index> <item_index>`: Removes an entry.
 
 ## Usage
 
-1. **Opening the Menu:** Enter the command `/repo gui` to access the main repository menu or `/repo gui [i]` to access a specific repository.
-2. **Adding an Entry:** Enter the command `/repo add [repo_index] [name]/[text]`, where `[name]` is the short name of the entry, and `[text]` is the text or command to be stored.
+1. **Opening the Menu:** Enter the command `/repo gui` to access the main repository menu or `/repo gui <i>` to access a specific repository.
+2. **Adding an Entry:** Enter the command `/repo add <repo_index> <name>/<text>`, where `<name>` is the short name of the entry, and `<text>` is the text or command to be stored.
 3. **Editing and Deleting:** Use the commands `/repo rename`, `/repo retext`, and `/repo remove` to manage existing entries.
 
 ## Interface
