@@ -19,7 +19,7 @@ In addition, **AnhyRepo** is compatible with **AnhyLingo**. However, its absence
 
 The full version of the command: `/anhyrepo args...`, aliases: `/repo args...` or the shortest version `/ar args...`
 
-- `/ar gui <i>`: Opens the repository menu. If `<i>` — the number of a repository is specified, it opens that particular repository.
+- `/ar gui [i]`: Opens the repository menu. If `[i]` — the number of a repository is specified, it opens that particular repository.
 - `/ar new <repo_name>` or `/ar n <repo_name>`: Creates a new repository.
 - `/ar regroup <repo_index> <new_name>` or `/ar rg <repo_index> <new_name>`: Renames a repository.
 - `/ar add <repo_index> <name>/<text>` or `/ar a <repo_index> <name>/<text>`: Adds a new entry. The name and text are entered separated by a slash "/".
