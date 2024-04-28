@@ -17,7 +17,7 @@ Additionally, **AnhyRepo** is compatible with [**AnhyLingo**](https://dev.anh.in
 
 ## Commands
 
-- **/anhyrepo args...**: aliases **/repo args...**, **/ar args...**
+The full version of the command: **/anhyrepo args...**, aliases: **/repo args...** or the shortest version **/ar args...**
 
 - **/ar gui [i]**: Opens the repository menu. If [i] — the number of a repository is specified, it opens that particular repository.
 - **/ar new [repo_name]** or **/ar n [repo_name]**: Creates a new repository.
