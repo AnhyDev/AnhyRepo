@@ -19,7 +19,7 @@ In addition, **AnhyRepo** is compatible with **AnhyLingo**. However, its absence
 
 The full version of the command: `/anhyrepo args...`, aliases: `/repo args...` or the shortest version `/ar args...`
 
-- `/ar gui <i>`: Opens the repository menu. If <i> — the number of a repository is specified, it opens that particular repository.
+- `/ar gui <i>`: Opens the repository menu. If `<i>` — the number of a repository is specified, it opens that particular repository.
 - `/ar new <repo_name>` or `/ar n <repo_name>`: Creates a new repository.
 - `/ar regroup <repo_index> <new_name>` or `/ar rg <repo_index> <new_name>`: Renames a repository.
 - `/ar add <repo_index> <name>/<text>` or `/ar a <repo_index> <name>/<text>`: Adds a new entry. The name and text are entered separated by a slash "/".
@@ -41,7 +41,7 @@ The full version of the command: `/anhyrepo args...`, aliases: `/repo args...` o
 
 ## Use Cases
 
-The AnhyRepo plugin can be useful in various scenarios:
-- **For server administrators:** Convenient storage and quick entry of repetitive commands, such as managing rights or server configurations.
-- **For content creators:** The ability to quickly invoke commands for scripted events or manage NPCs (e.g., in Denizen scripts).
-- **For players:** Storing frequently used text messages or commands, conveniently switching between different sets of commands depending on the server situation.
+The AnhyRepo plugin can be particularly effective in various scenarios:
+- **For server administrators:** It offers convenient storage and quick access to repetitive, long commands required for server management and configuration adjustments.
+- **For content creators and developers:** Enables the efficient storage and execution of lengthy, complex commands needed for scripting events, managing NPCs, or detailed world-building activities.
+- **For regular players who engage in extensive gameplay:** Helps in storing and quickly accessing long text messages or intricate command sequences, which enhances gameplay efficiency and interaction.
