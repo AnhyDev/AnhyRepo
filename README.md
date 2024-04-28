@@ -7,7 +7,7 @@ The AnhyRepo plugin is designed to create and manage "repositories" — personal
 ### Essential Dependencies for [**AnhyRepo**](https://dev.anh.ink/AnhyRepo/)
 The primary requirement for **AnhyRepo** to function is the installation of the [**AnhyLibAPI**](https://dev.anh.ink/anhylibapi/) library version 1.5.2 or higher. Without **AnhyLibAPI**, **AnhyRepo** will not operate.
 
-Additionally, **AnhyRepo** is compatible with [**AnhyLingo**](https://dev.anh.ink/anhylingo/) version 0.3.3 or higher. Installing **AnhyLingo** expands the multilingual capabilities of **AnhyRepo**. However, its absence does not affect the primary operation of **AnhyRepo**.
+In addition, **AnhyRepo** is compatible with **AnhyLingo**. However, its absence does not affect the operation of AnhyRepo in any way. Moreover, the **AnhyRepo** plugin has its own commands to change the language settings of players, which change the same player data as the **AnhyLingo** plugin, making it an alternative to the **AnhyLingo** plugin in this regard. There are no conflicts between plugins.
 
 ## Features
 
