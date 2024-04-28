@@ -5,7 +5,7 @@
 The AnhyRepo plugin is designed to create and manage "repositories" — personal storage spaces for commands or text messages in Minecraft. These repositories can be used for quickly inserting text into the command line or chat, with the option for prior editing.
 
 ### Essential Dependencies for [**AnhyRepo**](https://dev.anh.ink/AnhyRepo/)
-The primary requirement for **AnhyRepo** to function is the installation of the [**AnhyLibAPI**](https://dev.anh.ink/anhylibapi/) library version 1.5.2 or higher. Without **AnhyLibAPI**, **AnhyRepo** will not operate. It provides translation of system messages and multilingual names for merchants.
+The primary requirement for **AnhyRepo** to function is the installation of the [**AnhyLibAPI**](https://dev.anh.ink/anhylibapi/) library version 1.5.2 or higher. Without **AnhyLibAPI**, **AnhyRepo** will not operate.
 
 Additionally, **AnhyRepo** is compatible with [**AnhyLingo**](https://dev.anh.ink/anhylingo/) version 0.3.3 or higher. Installing **AnhyLingo** expands the multilingual capabilities of **AnhyRepo**. However, its absence does not affect the primary operation of **AnhyRepo**.
 
