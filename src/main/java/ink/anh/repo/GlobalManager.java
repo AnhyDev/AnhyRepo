@@ -8,10 +8,11 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.Plugin;
 
 import ink.anh.api.LibraryManager;
+import ink.anh.api.database.DatabaseManager;
+import ink.anh.api.database.MySQLConfig;
 import ink.anh.api.lingo.Translator;
 import ink.anh.api.lingo.lang.LanguageManager;
 import ink.anh.api.messages.Logger;
-import ink.anh.repo.db.MySQLConfig;
 import ink.anh.repo.storage.RepoDataHandler;
 import net.md_5.bungee.api.ChatColor;
 
@@ -160,7 +161,14 @@ public class GlobalManager extends LibraryManager {
 				plugin.getConfig().getString("database.mysql.password"),
 				plugin.getConfig().getString("database.mysql.prefix"),
 				plugin.getConfig().getBoolean("database.mysql.useSSL"),
-				plugin.getConfig().getBoolean("database.mysql.autoReconnect")
+				plugin.getConfig().getBoolean("database.mysql.autoReconnect"),
+				false
 	        );
+	}
+
+	@Override
+	public DatabaseManager getDatabaseManager() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

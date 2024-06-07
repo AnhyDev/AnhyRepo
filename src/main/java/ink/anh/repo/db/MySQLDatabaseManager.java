@@ -3,6 +3,8 @@ package ink.anh.repo.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import ink.anh.api.database.MySQLConfig;
 import ink.anh.repo.AnhyRepo;
 
 public class MySQLDatabaseManager extends DatabaseManager {
